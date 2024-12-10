@@ -1,0 +1,39 @@
+<div class="container mt-5"> 
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center">
+          <h4>OTP Verification</h4>
+        </div>
+        <div class="card-body">
+          <form id="otpForm" #otpForm="ngForm" (ngSubmit)="otpChecking()">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <div class="input-group">
+                  <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                  <input type="email" class="form-control" id="email" 
+                         [(ngModel)]="otpcheck.email" name="email" 
+                         placeholder="Enter your email" required 
+                         pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                         title="Please enter a valid email (e.g., user@gmail.com)">
+              </div>
+              <div *ngIf="otpForm.controls['email']?.invalid && otpForm.controls['email']?.touched" class="text-danger">
+                  <small>Please enter a valid email (e.g., user&#64;gmail.com).</small>
+              </div>
+          </div>
+            <div class="form-group">
+              <label for="otpInput mb-2">Enter OTP</label>
+              <input type="number" class="form-control" id="otpInput" [(ngModel)]="otpcheck.otp" name="otp" pattern="^[0-9]{6}$" 
+                     placeholder="Enter 6-digit OTP" required>
+              
+            </div>
+            <div *ngIf="otpForm.controls['otp']?.invalid && otpForm.controls['otp']?.touched" class="text-danger">
+              <small>Enter 6-digit OTP</small>
+          </div>
+            <button type="submit" class="btn btn-primary btn-block mt-3" [disabled]="otpForm.invalid">Verify OTP</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

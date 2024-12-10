@@ -1,0 +1,23 @@
+.advice{
+    text-align: justify;
+}
+.container{
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+
+    border-radius: 1%;
+    animation: color 6s infinite linear;
+
+}
+@keyframes color {
+    0%{
+        background-position: 1800px;
+    }
+    100%{
+        background-position: 0px;
+    }
+}
+.heading{
+    font-family: monospace;
+    font-weight: bold;
+}

@@ -1,0 +1,38 @@
+<app-pro-navbar></app-pro-navbar>
+<div class="container mt-5">
+    <form (ngSubmit)="getUploadproblem()" #uploadqaution="ngForm">
+        <div class="mb-3">
+            <label for="branchSelection" class="form-label text-center fw-bold">Select Branch :</label>
+            <select class="form-select" id="branchSelection" name="branch" [(ngModel)]="branchSelection" title="Select the Branch Name" required>
+                <option value="">Select your branch</option>
+                <option value="Mechanical">Mechanical</option>
+                <option value="Civil">Civil</option>
+                <option value="ECE">ECE</option>
+                <option value="CSE">CSE</option>
+                <option value="EEE">EEE</option>
+            </select>
+        </div>
+        <div *ngIf="uploadqaution.controls['branch']?.invalid && uploadqaution.controls['branch']?.touched" class="text-danger">
+            <small class="fw-bold">Select Branch</small>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary" [disabled]="uploadqaution.invalid">Submit</button>
+        </div>
+    </form>
+</div>
+
+<!-- problem views -->
+<div class="container">
+    <div class="row border rounded p-3 my-2" *ngFor="let allproblems of alluploadproblems; let i = index">
+        <div class="col-1 d-flex align-items-center justify-content-start">
+            <strong>{{ i + 1 }}</strong>
+        </div>
+        <div class="col-8">
+            <p class="mb-0">{{ allproblems.question }}</p>
+        </div>
+        <div class="col-3 d-flex align-items-center justify-content-end">
+            <span class="badge bg-success me-2">Solved: {{ allproblems.solve }}</span>
+            <span class="badge bg-primary">Views: {{ allproblems.views }}</span>
+        </div>
+    </div>
+</div>

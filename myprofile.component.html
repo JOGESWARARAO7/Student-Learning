@@ -1,0 +1,93 @@
+<app-pro-navbar></app-pro-navbar>
+<div class="contain mt-5">
+    <h4 class="text-center">My Profile</h4>
+    <div class="d-flex flex-column flex-md-row align-items-center justify-content-center">
+
+        <!-- Profile Details -->
+        <div class="container col-md-6 mb-3" id="profiledetails" >
+            <table class="table-responsive w-100 h-100 text-start">
+                <tr>
+                    <th>User ID :</th>
+                    <td>{{ pmuserprofile1.userid|| '-' }}</td>
+                </tr>
+                <tr>
+                    <th>User Name :</th>
+                    <td>{{ pmuserprofile1.username || '-' }}</td>
+                </tr>
+                <tr>
+                    <th>Full Name :</th>
+                    <td>{{ pmuserprofile1.fullname|| '-' }}</td>
+                </tr>
+                <tr>
+                    <th>Mobile Number :</th>
+                    <td>{{ pmuserprofile1.mobilenumber || '-' }}</td>
+                </tr>
+                <tr>
+                    <th>Qualification :</th>
+                    <td>{{ pmuserprofile1.qualification || '-' }}</td>
+                </tr>
+                <tr>
+                    <th>Address :</th>
+                    <td>{{ pmuserprofile1.address || '-' }}</td>
+                </tr>
+                
+            </table>
+        </div>
+
+        <!-- Profile Upload Form -->
+        <div class="container col-md-6 mb-3" id="profileupload" *ngIf="!profileUpdated">
+            <h4 class="text-center text-danger">Once create we can't change</h4>
+            <form class="fw-bold" (ngSubmit)="profileupdate()" #updateprofile="ngForm">
+                <div class="col-12 mb-3">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" name="fullname" id="fullname" [(ngModel)]="pmuserprofile.fullname" class="form-control" placeholder="Full Name" required>
+                </div>
+                <div *ngIf="updateprofile.controls['fullname']?.invalid && updateprofile.controls['fullname']?.touched" class="text-danger">
+                    <small class="fw-bold">*****  Enter The Full Name *****</small>
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="mobileNumber">Mobile Number</label>
+                    <input type="number" 
+                           name="mobileNumber" 
+                           id="mobileNumber" 
+                           [(ngModel)]="pmuserprofile.mobilenumber" 
+                           class="form-control" 
+                           placeholder="Mobile Number" 
+                           required 
+                           minlength="10" 
+                           maxlength="10" 
+                           pattern="^[6789]\d{9}$">
+                </div>
+                <div *ngIf="updateprofile.controls['mobileNumber']?.invalid && updateprofile.controls['mobileNumber']?.touched" class="text-danger">
+                    <small class="fw-bold">Mobile number should start with 6, 7, 8, or 9 and be exactly 10 digits.</small>
+                </div>
+                
+                <div class="col-12 mb-3">
+                    <label for="qualification" class="form-label">Select Qualification</label>
+                    <select class="form-select" id="qualification" name="qualification" [(ngModel)]="pmuserprofile.qualification" title="Select the Qualification" required>
+                        <option value="">Select your qualification</option>
+                        <option value="B-Tech">B-Tech</option>
+                        <option value="Diploma">Diploma</option>
+                        <option value="Mtech">Mtech</option>
+                        <option value="Phd">Phd</option>
+                        <option value="Pg">Pg</option>
+                    </select>
+                </div>
+                <div *ngIf="updateprofile.controls['qualification']?.invalid && updateprofile.controls['qualification']?.touched" class="text-danger">
+                    <small class="fw-bold">Enter Your Higher Qualification</small>
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="Address">Perminent Address</label>
+                    <textarea class="form-control" id="Address" name="Address" [(ngModel)]="pmuserprofile.address" placeholder="Permanent Address" required></textarea>
+                </div>
+                <div *ngIf="updateprofile.controls['Address']?.invalid && updateprofile.controls['Address']?.touched" class="text-danger">
+                    <small class="fw-bold">Please Enter the Address</small>
+                </div>
+                <div class="col-12 mb-3 text-center">
+                    <button type="submit" class="btn btn-primary" [disabled]="updateprofile.invalid">Submit</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

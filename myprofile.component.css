@@ -1,0 +1,32 @@
+#profileupload{
+   
+    background: rgb(205,62,237);
+background: linear-gradient(83deg, rgba(205,62,237,1) 0%, rgba(242,239,243,0.02302170868347342) 100%);
+}
+#profiledetails{
+    background: rgb(231,223,233);
+background: linear-gradient(83deg, rgba(231,223,233,0.6756827731092436) 0%, rgba(79,223,136,0.8689600840336135) 100%);
+}
+
+ /* Styles for making table transparent and responsive */
+ #profiledetails table {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+#profiledetails th, #profiledetails td {
+    border: none;
+    height: 55px;
+}
+/* Ensure containers have the same height */
+#profiledetails, #profileupload {
+    min-height: 100%;
+}
+/* Mobile view: stack divs vertically */
+@media (max-width: 767px) {
+    .d-flex.flex-md-row {
+        flex-direction: column;
+    }
+
+   
+}

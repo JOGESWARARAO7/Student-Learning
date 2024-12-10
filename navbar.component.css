@@ -1,0 +1,23 @@
+/* .navbar{
+    background-color: #9A616D;;
+} */
+/* Hide scrollbars on mobile devices */
+.navbar-nav::-webkit-scrollbar {
+    display: none;
+}
+.navbar-nav {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+/* Gap between navigation items */
+.navbar-nav a.nav-link {
+    padding: 0.5rem 0.75rem;
+}
+
+/* Blue font color and underline for active link */
+.nav-link.active-link {
+    color: blue !important;
+    border-bottom: 2px solid rgb(0, 153, 255);
+    font-weight: bold;
+    
+}

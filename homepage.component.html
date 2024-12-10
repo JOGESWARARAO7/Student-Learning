@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+    <form (ngSubmit)="getallproblem()" #uploadqaution="ngForm">
+        <div class="mb-3">
+            <label for="branchSelection" class="form-label text-center fw-bold">Select Branch :</label>
+            <select class="form-select" id="branchSelection" name="branch" [(ngModel)]="branchSelection" title="Select the Branch Name" required>
+                <option value="">Select your branch</option>
+                <option value="Mechanical">Mechanical</option>
+                <option value="Civil">Civil</option>
+                <option value="ECE">ECE</option>
+                <option value="CSE">CSE</option>
+                <option value="EEE">EEE</option>
+            </select>
+        </div>
+        <div *ngIf="uploadqaution.controls['branch']?.invalid && uploadqaution.controls['branch']?.touched" class="text-danger">
+            <small class="fw-bold">Select Branch</small>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary" [disabled]="uploadqaution.invalid">Submit</button>
+        </div>
+    </form>
+</div>
+
+<!-- Loop through PDFs and display each one in a separate card -->
+<div *ngFor="let pdf of pdfs" class="row justify-content-center mt-4">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <!-- Question ID as hyperlink -->
+                <h5 class="card-title text-center">
+                  
+                    <a (click)="getquestionid(pdf.quationid)" class="text-decoration-none"><span class=".text-success pe-none">Click : </span>{{ pdf.quationid }}</a>
+                </h5>
+                
+                <!-- Question Name centered -->
+                <h4 class="text-center">{{ pdf.question }}</h4>
+                
+                <!-- User ID displayed in parallel with Question ID -->
+                <div class="d-flex justify-content-between">
+                    <p class="mb-0">User ID: {{ pdf.userid }}</p>
+                    <p class="mb-0">Question ID: {{ pdf.quationid }}</p>
+                </div>
+
+                <!-- PDF Display Section -->
+                <div class="pdf-container mt-3">
+                    <div class="text-center">
+                        <iframe
+                            *ngIf="pdf.filequestion"
+                            [src]="getSafeUrl(pdf.filequestion)"
+                            width="100%"
+                            height="500px">
+                        </iframe>
+                    </div>
+                    <div *ngIf="!pdf.filequestion" class="text-danger text-center mt-2">
+                        <small>No PDF file available</small>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>

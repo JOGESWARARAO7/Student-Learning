@@ -1,0 +1,95 @@
+<app-pro-navbar></app-pro-navbar>
+
+<div class="container mt-5">
+  <div class="row">
+    <!-- Mechanical Progress -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <h5 class="card-title text-center">Mechanical</h5>
+          <div class="d-flex align-items-center mt-3">
+            <div class="progress flex-grow-1 me-2">
+              <div 
+                class="progress-bar progress-bar-striped bg-success" 
+                role="progressbar" 
+                [style.width]="mechanical + '%'" 
+                [attr.aria-valuenow]="mechanical" 
+                aria-valuemin="0" 
+                aria-valuemax="100">
+              </div>
+            </div>
+            <span>{{ mechanical }}%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Civil Progress -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <h5 class="card-title text-center">Civil</h5>
+          <div class="d-flex align-items-center mt-3">
+            <div class="progress flex-grow-1 me-2">
+              <div 
+                class="progress-bar progress-bar-striped bg-info" 
+                role="progressbar" 
+                [style.width]="civil + '%'" 
+                [attr.aria-valuenow]="civil" 
+                aria-valuemin="0" 
+                aria-valuemax="100">
+              </div>
+            </div>
+            <span>{{ civil }}%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- EEE Progress -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <h5 class="card-title text-center">EEE</h5>
+          <div class="d-flex align-items-center mt-3">
+            <div class="progress flex-grow-1 me-2">
+              <div 
+                class="progress-bar progress-bar-striped bg-warning" 
+                role="progressbar" 
+                [style.width]="eee + '%'" 
+                [attr.aria-valuenow]="eee" 
+                aria-valuemin="0" 
+                aria-valuemax="100">
+              </div>
+            </div>
+            <span>{{ eee }}%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CSE Progress -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <h5 class="card-title text-center">CSE</h5>
+          <div class="d-flex align-items-center mt-3">
+            <div class="progress flex-grow-1 me-2">
+              <div 
+                class="progress-bar progress-bar-striped bg-primary" 
+                role="progressbar" 
+                [style.width]="cse + '%'" 
+                [attr.aria-valuenow]="cse" 
+                aria-valuemin="0" 
+                aria-valuemax="100">
+              </div>
+            </div>
+            <span>{{ cse }}%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

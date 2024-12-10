@@ -1,0 +1,15 @@
+.form-control:hover{
+    background-color: rgba(145, 180, 234, 0.416);
+}
+
+.text-center{
+    font-family: monospace;
+}
+.title{
+    font-size: small;
+    font-family: cursive;
+    opacity: 0.5;
+}
+.login{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
